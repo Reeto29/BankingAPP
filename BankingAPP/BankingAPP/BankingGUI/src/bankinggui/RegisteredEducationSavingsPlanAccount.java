@@ -6,11 +6,11 @@ package bankinggui;
 
 /**
  *
- * @author rghos1
+ * @author REETO
  */
-class SavingAccount extends Debit{
+public class RegisteredEducationSavingsPlanAccount extends Debit {
 
-    public SavingAccount(double balance){
+    public RegisteredEducationSavingsPlanAccount(double balance){
         this.balance = balance;
     }
 
@@ -22,9 +22,4 @@ class SavingAccount extends Debit{
     private void interest(){
         interest=balance*0.020;
     }
-/*
-public class SavingAccount {
-    public static double balance=2500;
-}
-*/
 }

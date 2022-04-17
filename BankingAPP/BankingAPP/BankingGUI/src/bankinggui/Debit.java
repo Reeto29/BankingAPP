@@ -19,6 +19,11 @@ public class Debit {
             case "c":
                 ((ChequingAccount)currentAccount).deposit(depositAmount);
                 break;
+            case "t":
+                ((TaxFreeSavingsAccount)currentAccount).deposit(depositAmount);
+                break;
+            case "e":
+                ((RegisteredEducationSavingsPlanAccount)currentAccount).deposit(depositAmount);
         }
     }
 }
