@@ -24,6 +24,7 @@ public class Debit {
                 break;
             case "e":
                 ((RegisteredEducationSavingsPlanAccount)currentAccount).deposit(depositAmount);
+                break;
         }
     }
 }

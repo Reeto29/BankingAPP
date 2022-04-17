@@ -15,8 +15,10 @@ public class RegisteredEducationSavingsPlanAccount extends Debit {
     }
 
     public void deposit(double amount){
-       balance+=amount;
-       interest();
+           if(amount >= 5000){
+                balance+=amount;
+                interest();
+        }
     }
     
     private void interest(){

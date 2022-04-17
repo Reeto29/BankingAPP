@@ -15,9 +15,12 @@ public class TaxFreeSavingsAccount extends Debit{
     }
 
     public void deposit(double amount){
-       balance+=amount;
-       interest();
-    }
+
+           if(amount <= 6000){
+            balance+=amount;
+            interest();
+           }
+        }
     
     private void interest(){
         interest=balance*0.010;

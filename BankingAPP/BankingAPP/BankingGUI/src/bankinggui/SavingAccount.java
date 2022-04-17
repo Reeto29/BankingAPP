@@ -15,8 +15,8 @@ class SavingAccount extends Debit{
     }
 
     public void deposit(double amount){
-       balance+=amount;
-       interest();
+        balance+=amount;
+        interest();
     }
     
     private void interest(){

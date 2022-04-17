@@ -17,8 +17,9 @@ public class MainGui extends javax.swing.JFrame {
     TaxFreeSavingsAccount taxFreeSavingsAccount = new TaxFreeSavingsAccount(5000);
     RegisteredEducationSavingsPlanAccount registeredEducationSavingsPlanAccount = new RegisteredEducationSavingsPlanAccount(1200);
     String accountString = "c";
-    
+    String selectedAccountString="s";
     Debit currentAccount =chequingAccount; //default account
+    Debit selectedAccount=savingAccount;
 
     public MainGui() {
         initComponents();
@@ -58,9 +59,10 @@ public class MainGui extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel14 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jTextField3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -223,11 +225,6 @@ public class MainGui extends javax.swing.JFrame {
         jLabel8.setText("WITHDRAW");
 
         jTextField2.setBackground(new java.awt.Color(241, 241, 241));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
 
         jButton5.setText("Submit");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -266,7 +263,7 @@ public class MainGui extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(246, 245, 238));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel11.setText("INTEREST GAINED");
+        jLabel11.setText("ANNUAL INTEREST GAINED");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -294,9 +291,12 @@ public class MainGui extends javax.swing.JFrame {
 
         jPanel9.setBackground(new java.awt.Color(161, 196, 177));
 
-        jLabel13.setBackground(new java.awt.Color(161, 196, 177));
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel13.setText("TFSA ( TAX-FREE SAVINGS ACCOUNT)");
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Savings Account", "Chequing Account", "Tax Free Savings Account", "Registered Education Savings Plan Account" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -304,22 +304,25 @@ public class MainGui extends javax.swing.JFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel14.setBackground(new java.awt.Color(246, 245, 238));
 
-        jLabel18.setBackground(new java.awt.Color(161, 196, 177));
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel18.setText("$");
+        jButton7.setText("Submit");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -327,14 +330,17 @@ public class MainGui extends javax.swing.JFrame {
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton7))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel18)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton7)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -345,7 +351,6 @@ public class MainGui extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel7)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -354,7 +359,8 @@ public class MainGui extends javax.swing.JFrame {
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel4)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -376,7 +382,7 @@ public class MainGui extends javax.swing.JFrame {
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 360, 420));
@@ -385,46 +391,52 @@ public class MainGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        jLabel3.setText("YOUR TFSA ACCOUNT");
-        currentAccount = taxFreeSavingsAccount;
-        accountString = "t";
-        jLabel1.setText("$"+String.valueOf(currentAccount.balance));
+    jLabel3.setText("YOUR TFSA ACCOUNT");
+    jLabel6.setText("DEPOSIT (MAX 6000)");
+    jLabel8.setText("WITHDRAW");
+    currentAccount = taxFreeSavingsAccount;
+    accountString = "t";
+    jLabel1.setText("$"+String.valueOf(currentAccount.balance));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jLabel3.setText("YOUR RESP ACCOUNT");
-        currentAccount = registeredEducationSavingsPlanAccount;
-        accountString = "e";
-        jLabel1.setText("$"+String.valueOf(currentAccount.balance));
+    jLabel3.setText("YOUR RESP ACCOUNT");
+    jLabel6.setText("DEPOSIT");
+    jLabel8.setText("WITHDRAW (MAX 5000)");
+    currentAccount = registeredEducationSavingsPlanAccount;
+    accountString = "e";
+    jLabel1.setText("$"+String.valueOf(currentAccount.balance));
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jLabel3.setText("YOUR SAVINGS ACCOUNT");
-        currentAccount = savingAccount;
-        accountString = "s";
-        jLabel1.setText("$"+String.valueOf(currentAccount.balance));
+    jLabel3.setText("YOUR SAVINGS ACCOUNT");
+    jLabel6.setText("DEPOSIT");
+    jLabel8.setText("WITHDRAW");
+    currentAccount = savingAccount;
+    accountString = "s";
+    jLabel1.setText("$"+String.valueOf(currentAccount.balance));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        jLabel3.setText("YOUR CHEQUING ACCOUNT");
-        currentAccount = chequingAccount;
-        accountString = "c";
-        jLabel1.setText("$"+String.valueOf(currentAccount.balance));
-        jLabel9.setText(String.valueOf(currentAccount.interest));
+    jLabel3.setText("YOUR CHEQUING ACCOUNT");
+    jLabel6.setText("DEPOSIT");
+    jLabel8.setText("WITHDRAW");
+    currentAccount = chequingAccount;
+    accountString = "c";
+    jLabel1.setText("$"+String.valueOf(currentAccount.balance));
+    jLabel9.setText(String.valueOf(currentAccount.interest));
     }//GEN-LAST:event_jButton6ActionPerformed
     
     //withdraw
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         double amount;
         amount=Float.parseFloat(jTextField2.getText());
-        currentAccount.deposit(accountString, currentAccount, -amount);
-        jLabel1.setText("$"+String.valueOf(currentAccount.balance));
-        jLabel9.setText(String.valueOf(currentAccount.interest));
+        if(amount<=currentAccount.balance){
+            currentAccount.deposit(accountString, currentAccount, -amount);
+            jLabel1.setText("$"+String.valueOf(currentAccount.balance));
+            jLabel9.setText(String.valueOf(currentAccount.interest));
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
     
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         double amount;
@@ -434,6 +446,41 @@ public class MainGui extends javax.swing.JFrame {
         jLabel9.setText(String.valueOf(currentAccount.interest));
 
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        
+        switch(jComboBox1.getSelectedItem().toString()){
+        case "Savings Account":
+            selectedAccountString="s";
+            selectedAccount = savingAccount;
+            break;
+        case "Chequing Account":
+            selectedAccountString="c";
+            selectedAccount = chequingAccount;
+            break;
+        case "Registered Education Savings Plan Account":
+            selectedAccountString="e";
+            selectedAccount = registeredEducationSavingsPlanAccount;
+            break;
+        case "Tax Free Savings Account":
+            selectedAccountString="t";
+            selectedAccount = taxFreeSavingsAccount;
+            break;
+    }
+
+            
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        double amount;
+        amount=Float.parseFloat(jTextField3.getText());
+        if(amount<=currentAccount.balance){
+            currentAccount.deposit(accountString, currentAccount, -amount);
+            jLabel1.setText("$"+String.valueOf(currentAccount.balance));
+            jLabel9.setText(String.valueOf(currentAccount.interest));
+            currentAccount.deposit(selectedAccountString, selectedAccount, amount);
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -477,11 +524,11 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -498,5 +545,6 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,8 +13,8 @@ class ChequingAccount extends Debit{
         this.balance = balance;
     }
     public void deposit(double amount){
-        balance+=amount;
-        interest();
+            balance+=amount;
+            interest();
     }
     
     private void interest(){
